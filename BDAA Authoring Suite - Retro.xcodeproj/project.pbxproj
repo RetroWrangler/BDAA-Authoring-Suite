@@ -1,0 +1,617 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8BACABCF2E5D17BD00111220 /* BDAA_Authoring_Suite___RetroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BACABCE2E5D17BD00111220 /* BDAA_Authoring_Suite___RetroApp.swift */; };
+		8BACABD12E5D17BD00111220 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BACABD02E5D17BD00111220 /* ContentView.swift */; };
+		8BACABD32E5D17BE00111220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BACABD22E5D17BE00111220 /* Assets.xcassets */; };
+		8BACABD72E5D17BE00111220 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BACABD62E5D17BE00111220 /* Preview Assets.xcassets */; };
+		8BACABE12E5D17BE00111220 /* BDAA_Authoring_Suite___RetroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BACABE02E5D17BE00111220 /* BDAA_Authoring_Suite___RetroTests.swift */; };
+		8BACABEB2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BACABEA2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITests.swift */; };
+		8BACABED2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BACABEC2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8BACABDD2E5D17BE00111220 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BACABC32E5D17BC00111220 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BACABCA2E5D17BC00111220;
+			remoteInfo = "BDAA Authoring Suite - Retro";
+		};
+		8BACABE72E5D17BE00111220 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BACABC32E5D17BC00111220 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BACABCA2E5D17BC00111220;
+			remoteInfo = "BDAA Authoring Suite - Retro";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8BACABCB2E5D17BD00111220 /* BDAA Authoring Suite - Retro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BDAA Authoring Suite - Retro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BACABCE2E5D17BD00111220 /* BDAA_Authoring_Suite___RetroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BDAA_Authoring_Suite___RetroApp.swift"; sourceTree = "<group>"; };
+		8BACABD02E5D17BD00111220 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8BACABD22E5D17BE00111220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8BACABD42E5D17BE00111220 /* BDAA_Authoring_Suite___Retro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BDAA_Authoring_Suite___Retro.entitlements"; sourceTree = "<group>"; };
+		8BACABD62E5D17BE00111220 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8BACABDC2E5D17BE00111220 /* BDAA Authoring Suite - RetroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BDAA Authoring Suite - RetroTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BACABE02E5D17BE00111220 /* BDAA_Authoring_Suite___RetroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BDAA_Authoring_Suite___RetroTests.swift"; sourceTree = "<group>"; };
+		8BACABE62E5D17BE00111220 /* BDAA Authoring Suite - RetroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BDAA Authoring Suite - RetroUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BACABEA2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BDAA_Authoring_Suite___RetroUITests.swift"; sourceTree = "<group>"; };
+		8BACABEC2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BDAA_Authoring_Suite___RetroUITestsLaunchTests.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8BACABC82E5D17BC00111220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BACABD92E5D17BE00111220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BACABE32E5D17BE00111220 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8BACABC22E5D17BC00111220 = {
+			isa = PBXGroup;
+			children = (
+				8BACABCD2E5D17BD00111220 /* BDAA Authoring Suite - Retro */,
+				8BACABDF2E5D17BE00111220 /* BDAA Authoring Suite - RetroTests */,
+				8BACABE92E5D17BE00111220 /* BDAA Authoring Suite - RetroUITests */,
+				8BACABCC2E5D17BD00111220 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8BACABCC2E5D17BD00111220 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8BACABCB2E5D17BD00111220 /* BDAA Authoring Suite - Retro.app */,
+				8BACABDC2E5D17BE00111220 /* BDAA Authoring Suite - RetroTests.xctest */,
+				8BACABE62E5D17BE00111220 /* BDAA Authoring Suite - RetroUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8BACABCD2E5D17BD00111220 /* BDAA Authoring Suite - Retro */ = {
+			isa = PBXGroup;
+			children = (
+				8BACABCE2E5D17BD00111220 /* BDAA_Authoring_Suite___RetroApp.swift */,
+				8BACABD02E5D17BD00111220 /* ContentView.swift */,
+				8BACABD22E5D17BE00111220 /* Assets.xcassets */,
+				8BACABD42E5D17BE00111220 /* BDAA_Authoring_Suite___Retro.entitlements */,
+				8BACABD52E5D17BE00111220 /* Preview Content */,
+			);
+			path = "BDAA Authoring Suite - Retro";
+			sourceTree = "<group>";
+		};
+		8BACABD52E5D17BE00111220 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8BACABD62E5D17BE00111220 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8BACABDF2E5D17BE00111220 /* BDAA Authoring Suite - RetroTests */ = {
+			isa = PBXGroup;
+			children = (
+				8BACABE02E5D17BE00111220 /* BDAA_Authoring_Suite___RetroTests.swift */,
+			);
+			path = "BDAA Authoring Suite - RetroTests";
+			sourceTree = "<group>";
+		};
+		8BACABE92E5D17BE00111220 /* BDAA Authoring Suite - RetroUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8BACABEA2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITests.swift */,
+				8BACABEC2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITestsLaunchTests.swift */,
+			);
+			path = "BDAA Authoring Suite - RetroUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8BACABCA2E5D17BC00111220 /* BDAA Authoring Suite - Retro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BACABF02E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring Suite - Retro" */;
+			buildPhases = (
+				8BACABC72E5D17BC00111220 /* Sources */,
+				8BACABC82E5D17BC00111220 /* Frameworks */,
+				8BACABC92E5D17BC00111220 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BDAA Authoring Suite - Retro";
+			productName = "BDAA Authoring Suite - Retro";
+			productReference = 8BACABCB2E5D17BD00111220 /* BDAA Authoring Suite - Retro.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8BACABDB2E5D17BE00111220 /* BDAA Authoring Suite - RetroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BACABF32E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring Suite - RetroTests" */;
+			buildPhases = (
+				8BACABD82E5D17BE00111220 /* Sources */,
+				8BACABD92E5D17BE00111220 /* Frameworks */,
+				8BACABDA2E5D17BE00111220 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BACABDE2E5D17BE00111220 /* PBXTargetDependency */,
+			);
+			name = "BDAA Authoring Suite - RetroTests";
+			productName = "BDAA Authoring Suite - RetroTests";
+			productReference = 8BACABDC2E5D17BE00111220 /* BDAA Authoring Suite - RetroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8BACABE52E5D17BE00111220 /* BDAA Authoring Suite - RetroUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BACABF62E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring Suite - RetroUITests" */;
+			buildPhases = (
+				8BACABE22E5D17BE00111220 /* Sources */,
+				8BACABE32E5D17BE00111220 /* Frameworks */,
+				8BACABE42E5D17BE00111220 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BACABE82E5D17BE00111220 /* PBXTargetDependency */,
+			);
+			name = "BDAA Authoring Suite - RetroUITests";
+			productName = "BDAA Authoring Suite - RetroUITests";
+			productReference = 8BACABE62E5D17BE00111220 /* BDAA Authoring Suite - RetroUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8BACABC32E5D17BC00111220 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					8BACABCA2E5D17BC00111220 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					8BACABDB2E5D17BE00111220 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 8BACABCA2E5D17BC00111220;
+					};
+					8BACABE52E5D17BE00111220 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 8BACABCA2E5D17BC00111220;
+					};
+				};
+			};
+			buildConfigurationList = 8BACABC62E5D17BC00111220 /* Build configuration list for PBXProject "BDAA Authoring Suite - Retro" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8BACABC22E5D17BC00111220;
+			productRefGroup = 8BACABCC2E5D17BD00111220 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8BACABCA2E5D17BC00111220 /* BDAA Authoring Suite - Retro */,
+				8BACABDB2E5D17BE00111220 /* BDAA Authoring Suite - RetroTests */,
+				8BACABE52E5D17BE00111220 /* BDAA Authoring Suite - RetroUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8BACABC92E5D17BC00111220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BACABD72E5D17BE00111220 /* Preview Assets.xcassets in Resources */,
+				8BACABD32E5D17BE00111220 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BACABDA2E5D17BE00111220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BACABE42E5D17BE00111220 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8BACABC72E5D17BC00111220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BACABD12E5D17BD00111220 /* ContentView.swift in Sources */,
+				8BACABCF2E5D17BD00111220 /* BDAA_Authoring_Suite___RetroApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BACABD82E5D17BE00111220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BACABE12E5D17BE00111220 /* BDAA_Authoring_Suite___RetroTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BACABE22E5D17BE00111220 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BACABED2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITestsLaunchTests.swift in Sources */,
+				8BACABEB2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8BACABDE2E5D17BE00111220 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BACABCA2E5D17BC00111220 /* BDAA Authoring Suite - Retro */;
+			targetProxy = 8BACABDD2E5D17BE00111220 /* PBXContainerItemProxy */;
+		};
+		8BACABE82E5D17BE00111220 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BACABCA2E5D17BC00111220 /* BDAA Authoring Suite - Retro */;
+			targetProxy = 8BACABE72E5D17BE00111220 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8BACABEE2E5D17BE00111220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8BACABEF2E5D17BE00111220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		8BACABF12E5D17BE00111220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "BDAA Authoring Suite - Retro/BDAA_Authoring_Suite___Retro.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BDAA Authoring Suite - Retro/Preview Content\"";
+				DEVELOPMENT_TEAM = 62593524UC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.BDAA-Authoring-Suite---Retro";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8BACABF22E5D17BE00111220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "BDAA Authoring Suite - Retro/BDAA_Authoring_Suite___Retro.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"BDAA Authoring Suite - Retro/Preview Content\"";
+				DEVELOPMENT_TEAM = 62593524UC;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.BDAA-Authoring-Suite---Retro";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8BACABF42E5D17BE00111220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62593524UC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.BDAA-Authoring-Suite---RetroTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BDAA Authoring Suite - Retro.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BDAA Authoring Suite - Retro";
+			};
+			name = Debug;
+		};
+		8BACABF52E5D17BE00111220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62593524UC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.BDAA-Authoring-Suite---RetroTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BDAA Authoring Suite - Retro.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BDAA Authoring Suite - Retro";
+			};
+			name = Release;
+		};
+		8BACABF72E5D17BE00111220 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62593524UC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.BDAA-Authoring-Suite---RetroUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "BDAA Authoring Suite - Retro";
+			};
+			name = Debug;
+		};
+		8BACABF82E5D17BE00111220 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62593524UC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MACOSX_DEPLOYMENT_TARGET = 12.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-.BDAA-Authoring-Suite---RetroUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "BDAA Authoring Suite - Retro";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8BACABC62E5D17BC00111220 /* Build configuration list for PBXProject "BDAA Authoring Suite - Retro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BACABEE2E5D17BE00111220 /* Debug */,
+				8BACABEF2E5D17BE00111220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BACABF02E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring Suite - Retro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BACABF12E5D17BE00111220 /* Debug */,
+				8BACABF22E5D17BE00111220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BACABF32E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring Suite - RetroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BACABF42E5D17BE00111220 /* Debug */,
+				8BACABF52E5D17BE00111220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BACABF62E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring Suite - RetroUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BACABF72E5D17BE00111220 /* Debug */,
+				8BACABF82E5D17BE00111220 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8BACABC32E5D17BC00111220 /* Project object */;
+}
