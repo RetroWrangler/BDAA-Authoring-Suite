@@ -6,14 +6,14 @@
 //  Single-file demo UI for Blu-ray Audio authoring orchestration.
 //  External tools required (user-provided):
 //  - ffprobe  (for metadata)
-//  - ffmpeg   (for LPCM conversion and black/custom image video generation)
+//  - ffmpeg   (for LPCM conversion and black video generation)
 //  - tsMuxer  (for Blu-ray BDMV folder creation)
 //
 //  Notes/limits:
 //  - "Dolby Atmos" here means TrueHD+Atmos pass-through only (no encoding).
 //  - "DTS-HD Master Audio" pass-through only (no encoding).
 //  - LPCM path normalizes to a single Blu-ray-legal PCM format across tracks.
-//  - We generate an H.264 High@4.1 yuv420p video (black or still image) to satisfy Blu-ray players.
+//  - We generate an H.264 High@4.1 yuv420p video (black screen) to satisfy Blu-ray players.
 
 
 import SwiftUI
@@ -99,11 +99,6 @@ enum LPCMFormat: String, CaseIterable, Identifiable {
     var bitDepth: Int { 24 }
 }
 
-enum ImageMode: String, CaseIterable, Identifiable {
-    case none = "No Image"
-    case custom = "Custom Image"
-    var id: String { rawValue }
-}
 
 enum TextColor: String, CaseIterable, Identifiable {
     case white, red, black, yellow, purple, green, cyan, blue, orange
@@ -136,39 +131,6 @@ enum DiscCapacity: String, CaseIterable, Identifiable {
     }
 }
 
-// Advanced Mode enums
-enum BackgroundType: String, CaseIterable, Identifiable {
-    case solid = "Solid Color"
-    case gradient = "Gradient"
-    case image = "Image"
-    var id: String { rawValue }
-}
-
-enum BorderColor: String, CaseIterable, Identifiable {
-    case white = "White"
-    case black = "Black"
-    var id: String { rawValue }
-    
-    var nsColor: NSColor {
-        switch self {
-        case .white: return .white
-        case .black: return .black
-        }
-    }
-}
-
-enum TextGlowColor: String, CaseIterable, Identifiable {
-    case white = "White"
-    case black = "Black"
-    var id: String { rawValue }
-    
-    var nsColor: NSColor {
-        switch self {
-        case .white: return .white
-        case .black: return .black
-        }
-    }
-}
 
 struct AudioMetadata {
     let title: String
@@ -228,26 +190,7 @@ final class AuthoringViewModel: ObservableObject {
     // Live estimate of final project size
     @Published var estimatedSizeBytes: UInt64 = 0
 
-    // Video generation properties  
-    @Published var useCustomVideo: Bool = true  // Toggle between custom video and black screen
-    @Published var coverArtPath: URL?
-    
-    // Video customization
-    @Published var customArtist: String = ""
-    @Published var customAlbum: String = ""
-    @Published var showArtist: Bool = false
-    @Published var showAlbum: Bool = false
-    @Published var backgroundType: BackgroundType = .solid
-    @Published var solidColor: NSColor = .black
-    @Published var gradientStartColor: NSColor = .black
-    @Published var gradientEndColor: NSColor = .gray
-    @Published var backgroundImagePath: URL?
-    @Published var showBorder: Bool = false
-    @Published var borderColor: BorderColor = .white
-    @Published var trackTitleColor: NSColor = .white
-    @Published var enableTextGlow: Bool = false
-    @Published var textGlowColor: TextGlowColor = .white
-    @Published var textGlowIntensity: Double = 5.0
+    // Video generation properties (simplified - black screen only)
 
     func cancelBuild() {
         guard isWorking else { return }
@@ -289,11 +232,49 @@ final class AuthoringViewModel: ObservableObject {
         panel.allowedFileTypes = ["wav", "flac", "aiff", "aif", "m4a", "mp3", "thd", "truehd", "dtshd", "dts"]
         panel.message = "Choose audio files (FLAC/ALAC/WAV/AIFF/TrueHD/DTS-HD)."
         if panel.runModal() == .OK {
-            for url in panel.urls {
-                DispatchQueue.global(qos: .userInitiated).async {
-                    Task {
-                        await self.probeAndAdd(url: url)
+            // Sort URLs by filename to ensure correct numerical order (01, 02, 03, etc.)
+            let sortedUrls = panel.urls.sorted { lhs, rhs in
+                let leftName = lhs.deletingPathExtension().lastPathComponent
+                let rightName = rhs.deletingPathExtension().lastPathComponent
+                return leftName.localizedStandardCompare(rightName) == .orderedAscending
+            }
+            
+            DispatchQueue.main.async {
+                self.appendLog("🔤 Original file order: \(panel.urls.map { $0.lastPathComponent }.joined(separator: ", "))")
+                self.appendLog("📝 Sorted file order: \(sortedUrls.map { $0.lastPathComponent }.joined(separator: ", "))")
+            }
+            
+            // Process files sequentially to maintain order
+            Task {
+                var orderedItems: [AudioItem] = []
+                
+                for (index, url) in sortedUrls.enumerated() {
+                    let probedItem = await self.probeFile(url: url)
+                    orderedItems.append(probedItem)
+                    DispatchQueue.main.async {
+                        self.appendLog("➕ Probed file \(index + 1)/\(sortedUrls.count): \(url.lastPathComponent)")
                     }
+                }
+                
+                // Add all items to the main array in correct order
+                let itemsToAdd = orderedItems
+                let itemCount = orderedItems.count
+                DispatchQueue.main.async {
+                    // Clear existing items first to avoid duplicates
+                    let startIndex = self.items.count
+                    
+                    // Log each item as it's about to be added
+                    for (index, item) in itemsToAdd.enumerated() {
+                        self.appendLog("🔢 Adding item \(index + 1): \(item.displayName)")
+                    }
+                    
+                    self.items.append(contentsOf: itemsToAdd)
+                    
+                    // Log the final order in the items array
+                    let addedItems = Array(self.items[startIndex...])
+                    self.appendLog("✅ Processing complete. Added \(itemCount) files")
+                    self.appendLog("📋 Items added in this order: \(addedItems.map { $0.displayName }.joined(separator: ", "))")
+                    self.appendLog("🎯 Full items array order: \(self.items.map { $0.displayName }.joined(separator: ", "))")
                 }
             }
         }
@@ -326,37 +307,13 @@ final class AuthoringViewModel: ObservableObject {
     }
 
     // MARK: - Advanced Mode Functions
-    func selectCoverArt() {
-        let panel = NSOpenPanel()
-        panel.title = "Select Album Cover Art"
-        panel.allowsMultipleSelection = false
-        panel.allowedFileTypes = ["png", "jpg", "jpeg", "tiff", "bmp", "gif"]
-        panel.canChooseDirectories = false
-        panel.canChooseFiles = true
-        
-        if panel.runModal() == .OK {
-            coverArtPath = panel.url
-        }
-    }
-    
-    func selectBackgroundImage() {
-        let panel = NSOpenPanel()
-        panel.title = "Select Background Image"
-        panel.allowsMultipleSelection = false
-        panel.allowedFileTypes = ["png", "jpg", "jpeg", "tiff", "bmp", "gif"]
-        panel.canChooseDirectories = false
-        panel.canChooseFiles = true
-        
-        if panel.runModal() == .OK {
-            backgroundImagePath = panel.url
-        }
-    }
 
     // MARK: - Probing
-    func probeAndAdd(url: URL) async {
+    func probeFile(url: URL) async -> AudioItem {
         // Strip extension for the display name
         let baseName = url.deletingPathExtension().lastPathComponent
         let initialItem = AudioItem(url: url, displayName: baseName, duration: nil, sampleRate: nil, bitsPerSample: nil, channels: nil, codecName: nil)
+        
         do {
             let info = try await FFProbe(path: ffprobePath).probeAudio(url: url)
             let finalItem = AudioItem(
@@ -369,14 +326,21 @@ final class AuthoringViewModel: ObservableObject {
                 codecName: info.codecName
             )
             DispatchQueue.main.async {
-                self.items.append(finalItem)
                 self.appendLog("Probed: \(finalItem.displayName) — sr=\(finalItem.sampleRate ?? 0) Hz, \(finalItem.bitsPerSample ?? 0)-bit, ch=\(finalItem.channels ?? 0), codec=\(finalItem.codecName ?? "?")")
             }
+            return finalItem
         } catch {
             DispatchQueue.main.async {
                 self.appendLog("ffprobe failed for \(url.lastPathComponent): \(error.localizedDescription)")
-                self.items.append(initialItem)
             }
+            return initialItem
+        }
+    }
+    
+    func probeAndAdd(url: URL) async {
+        let item = await probeFile(url: url)
+        DispatchQueue.main.async {
+            self.items.append(item)
         }
     }
 
@@ -482,279 +446,7 @@ final class AuthoringViewModel: ObservableObject {
         }
     }
     
-    func createVideoFrame(coverArt: URL, trackTitle: String, trackNumber: Int, artist: String, album: String) -> NSImage? {
-        let frameSize = NSSize(width: 1920, height: 1080)
-        let image = NSImage(size: frameSize)
-        
-        image.lockFocus()
-        defer { image.unlockFocus() }
-        
-        // Draw background based on type
-        let backgroundRect = NSRect(origin: .zero, size: frameSize)
-        
-        if backgroundType == .solid {
-            // Solid color background
-            solidColor.setFill()
-            backgroundRect.fill()
-        } else if backgroundType == .gradient {
-            // Gradient background
-            let gradient = NSGradient(starting: gradientStartColor, ending: gradientEndColor)
-            gradient?.draw(in: backgroundRect, angle: -90) // Top to bottom gradient
-        } else if backgroundType == .image, let imagePath = backgroundImagePath {
-            // Image background
-            if let backgroundImage = NSImage(contentsOf: imagePath) {
-                // Scale to fill the entire background while maintaining aspect ratio
-                let imageSize = backgroundImage.size
-                let scaleX = frameSize.width / imageSize.width
-                let scaleY = frameSize.height / imageSize.height
-                let scale = max(scaleX, scaleY) // Scale to fill (crop if needed)
-                
-                let scaledWidth = imageSize.width * scale
-                let scaledHeight = imageSize.height * scale
-                
-                // Center the image
-                let drawRect = NSRect(
-                    x: (frameSize.width - scaledWidth) / 2,
-                    y: (frameSize.height - scaledHeight) / 2,
-                    width: scaledWidth,
-                    height: scaledHeight
-                )
-                
-                backgroundImage.draw(in: drawRect)
-            } else {
-                // Fallback to black if image fails to load
-                NSColor.black.setFill()
-                backgroundRect.fill()
-            }
-        }
-        
-        // Draw small cover art on left side
-        if let coverImage = NSImage(contentsOf: coverArt) {
-            let borderWidth: CGFloat = showBorder ? 8 : 0
-            let coverSize: CGFloat = min(frameSize.height - 200, frameSize.width / 2 - 200)
-            let coverRect = NSRect(
-                x: (frameSize.width / 2 - coverSize) / 2,
-                y: (frameSize.height - coverSize) / 2,
-                width: coverSize,
-                height: coverSize
-            )
-            
-            // Draw border if enabled
-            if showBorder {
-                let borderRect = NSRect(
-                    x: coverRect.origin.x - borderWidth,
-                    y: coverRect.origin.y - borderWidth,
-                    width: coverRect.width + (borderWidth * 2),
-                    height: coverRect.height + (borderWidth * 2)
-                )
-                borderColor.nsColor.setFill()
-                borderRect.fill()
-            }
-            
-            coverImage.draw(in: coverRect)
-        }
-        
-        // Draw text on right side for cover art mode
-        let textStartX: CGFloat = frameSize.width / 2 + 50
-        let textWidth: CGFloat = frameSize.width / 2 - 100
-        
-        // Track title with optional glow
-        let trackText = trackTitle
-        let titleFont = NSFont.systemFont(ofSize: 32, weight: .bold)
-        let titleSize = trackText.size(withAttributes: [.font: titleFont])
-        let titleRect = NSRect(
-            x: textStartX,
-            y: frameSize.height / 2 - 50,
-            width: textWidth,
-            height: titleSize.height
-        )
-        
-        // Draw glow effect if enabled
-        if enableTextGlow {
-            let glowColor = textGlowColor.nsColor
-            let glowRadius = CGFloat(textGlowIntensity)
-            
-            // Create multiple passes for stronger glow
-            for offset in stride(from: -glowRadius, through: glowRadius, by: 0.5) {
-                for yOffset in stride(from: -glowRadius, through: glowRadius, by: 0.5) {
-                    let glowRect = NSRect(
-                        x: titleRect.origin.x + offset,
-                        y: titleRect.origin.y + yOffset,
-                        width: titleRect.width,
-                        height: titleRect.height
-                    )
-                    
-                    let glowAttributes: [NSAttributedString.Key: Any] = [
-                        .font: titleFont,
-                        .foregroundColor: glowColor.withAlphaComponent(0.3)
-                    ]
-                    
-                    trackText.draw(in: glowRect, withAttributes: glowAttributes)
-                }
-            }
-        }
-        
-        // Draw main text on top
-        let titleAttributes: [NSAttributedString.Key: Any] = [
-            .font: titleFont,
-            .foregroundColor: trackTitleColor
-        ]
-        trackText.draw(in: titleRect, withAttributes: titleAttributes)
-        
-        // Artist (only if enabled)
-        var currentY = frameSize.height / 2 - 120
-        if showArtist && !artist.isEmpty {
-            let artistAttributes: [NSAttributedString.Key: Any] = [
-                .font: NSFont.systemFont(ofSize: 24),
-                .foregroundColor: NSColor.lightGray
-            ]
-            
-            let artistRect = NSRect(
-                x: textStartX,
-                y: currentY,
-                width: textWidth,
-                height: 40
-            )
-            artist.draw(in: artistRect, withAttributes: artistAttributes)
-            currentY -= 50
-        }
-        
-        // Album (only if enabled)
-        if showAlbum && !album.isEmpty {
-            let albumAttributes: [NSAttributedString.Key: Any] = [
-                .font: NSFont.systemFont(ofSize: 20),
-                .foregroundColor: NSColor.gray
-            ]
-            
-            let albumRect = NSRect(
-                x: textStartX,
-                y: currentY,
-                width: textWidth,
-                height: 30
-            )
-            album.draw(in: albumRect, withAttributes: albumAttributes)
-        }
-        
-        return image
-    }
     
-    private func generateAdvancedVideo(
-        prepared: PreparedAudioResult,
-        vmaker: VideoMaker,
-        workDir: URL,
-        fps: String,
-        resolution: String
-    ) async throws -> URL {
-        var videoSegments: [URL] = []
-        var currentTime: Double = 0
-        
-        // Create individual video segments for each track
-        for (index, duration) in prepared.segmentDurations.enumerated() {
-            if cancelRequested { throw AuthorError.cancelled }
-            
-            let item = index < items.count ? items[index] : nil
-            let metadata = item != nil ? await extractMetadata(from: item!.url) : 
-                AudioMetadata(title: "Track \(index + 1)", artist: "", album: "", trackNumber: index + 1, duration: duration)
-            
-            // Update progress
-            let progressBase = 0.55
-            let progressSpan = 0.25
-            let segmentProgress = Double(index) / Double(prepared.segmentDurations.count)
-            setProgress(progressBase + (progressSpan * segmentProgress), 
-                       status: "Generating video for track \(index + 1)/\(prepared.segmentDurations.count)...")
-            
-            // Create frame image using our advanced video frame function
-            appendLog("🎨 Creating frame for: \(metadata.title)")
-            appendLog("   Artist: \(showArtist ? (customArtist.isEmpty ? metadata.artist : customArtist) : "(hidden)")")
-            appendLog("   Album: \(showAlbum ? (customAlbum.isEmpty ? metadata.album : customAlbum) : "(hidden)")")
-            appendLog("   Cover art: \(coverArtPath?.path ?? "(none)")")
-            
-            let frameImage = createVideoFrame(
-                coverArt: coverArtPath ?? URL(fileURLWithPath: ""),
-                trackTitle: metadata.title,
-                trackNumber: metadata.trackNumber,
-                artist: showArtist ? (customArtist.isEmpty ? metadata.artist : customArtist) : "",
-                album: showAlbum ? (customAlbum.isEmpty ? metadata.album : customAlbum) : ""
-            )
-            
-            // Save frame as temporary PNG
-            let frameFile = workDir.appendingPathComponent("frame_\(index).png")
-            guard let frameImage = frameImage,
-                  let tiffData = frameImage.tiffRepresentation,
-                  let bitmap = NSBitmapImageRep(data: tiffData),
-                  let pngData = bitmap.representation(using: NSBitmapImageRep.FileType.png, properties: [:]) else {
-                throw AuthorError.custom("Failed to create frame image for track \(index + 1)")
-            }
-            
-            try pngData.write(to: frameFile)
-            
-            // Update progress before video generation
-            setProgress(progressBase + (progressSpan * (segmentProgress + 0.3/Double(prepared.segmentDurations.count))), 
-                       status: "Rendering video for track \(index + 1)/\(prepared.segmentDurations.count)...")
-            
-            // Generate video segment from this frame
-            let segmentVideo = try await vmaker.makeStillVideo(
-                from: frameFile,
-                duration: duration,
-                fps: fps,
-                resolution: resolution,
-                overlays: [], // No overlays needed as text is rendered in image
-                fontColor: "white",
-                fontSize: 42,
-                glowEnabled: false,
-                glowColor: "black",
-                glowIntensity: 0,
-                outDir: workDir
-            )
-            
-            videoSegments.append(segmentVideo)
-            currentTime += duration
-            
-            // Update progress after video generation completes
-            setProgress(progressBase + (progressSpan * (Double(index + 1) / Double(prepared.segmentDurations.count))), 
-                       status: "Completed track \(index + 1)/\(prepared.segmentDurations.count)")
-            
-            // Clean up temporary frame file
-            try? FileManager.default.removeItem(at: frameFile)
-        }
-        
-        // Concatenate all video segments into final video
-        setProgress(0.80, status: "Merging video segments...")
-        let finalVideo = workDir.appendingPathComponent("advanced_final.mp4")
-        
-        // Create concat file for FFmpeg
-        let concatFile = workDir.appendingPathComponent("concat_list.txt")
-        let concatContent = videoSegments.map { "file '\($0.path)'" }.joined(separator: "\n")
-        try concatContent.write(to: concatFile, atomically: true, encoding: .utf8)
-        
-        // Use FFmpeg to concatenate
-        let process = Process()
-        process.executableURL = URL(fileURLWithPath: ffmpegPath)
-        process.arguments = [
-            "-f", "concat",
-            "-safe", "0",
-            "-i", concatFile.path,
-            "-c", "copy",
-            "-y",
-            finalVideo.path
-        ]
-        process.environment = ProcEnv.augmented()
-        
-        try process.run()
-        process.waitUntilExit()
-        
-        guard process.terminationStatus == 0 else {
-            throw AuthorError.custom("FFmpeg concatenation failed")
-        }
-        
-        // Clean up segment files and concat file
-        for segment in videoSegments {
-            try? FileManager.default.removeItem(at: segment)
-        }
-        try? FileManager.default.removeItem(at: concatFile)
-        
-        return finalVideo
-    }
 
     // MARK: - Build Blu-ray
     func buildBluRayFolder() {
@@ -900,34 +592,21 @@ final class AuthoringViewModel: ObservableObject {
 
             let vmaker = VideoMaker(ffmpeg: ffmpegPath, log: appendLog, killer: self.killer)
             
-            // Generate video based on user preference
-            let h264: URL
-            if useCustomVideo {
-                appendLog("🎨 Generating custom video frames...")
-                h264 = try await generateAdvancedVideo(
-                    prepared: prepared,
-                    vmaker: vmaker,
-                    workDir: work.root,
-                    fps: fps,
-                    resolution: res
-                )
-                appendLog("Custom video ready: \(h264.lastPathComponent)")
-            } else {
-                appendLog("🖤 Generating black video...")
-                h264 = try await vmaker.makeBlackVideo(
-                    duration: dur,
-                    fps: fps,
-                    resolution: res,
-                    overlays: [],
-                    fontColor: "white",
-                    fontSize: 24,
-                    glowEnabled: false,
-                    glowColor: "black",
-                    glowIntensity: 0,
-                    outDir: work.root
-                )
-                appendLog("Black video ready: \(h264.lastPathComponent)")
-            }
+            // Generate black video
+            appendLog("🖤 Generating black video...")
+            let h264 = try await vmaker.makeBlackVideo(
+                duration: dur,
+                fps: fps,
+                resolution: res,
+                overlays: [],
+                fontColor: "white",
+                fontSize: 24,
+                glowEnabled: false,
+                glowColor: "black",
+                glowIntensity: 0,
+                outDir: work.root
+            )
+            appendLog("Black video ready: \(h264.lastPathComponent)")
             if self.cancelRequested { throw AuthorError.cancelled }
 
             // Refine estimate with actual video file size
@@ -2256,7 +1935,7 @@ struct ContentView: View {
                 ForEach(Array(vm.items.enumerated()), id: \.element.id) { index, item in
                     HStack {
                         Text("\(index + 1)").font(.system(.body, design: .monospaced)).frame(width: 30)
-                        Text(item.url.deletingPathExtension().lastPathComponent)
+                        Text(item.displayName)
                             .lineLimit(1)
                             .frame(maxWidth: .infinity, alignment: .leading)
                         Text(item.codecName ?? "?").frame(width: 140)
@@ -2313,151 +1992,6 @@ struct ContentView: View {
             
 
             
-            // Video Mode Toggle
-            HStack {
-                Toggle("Custom Video", isOn: $vm.useCustomVideo)
-                    .font(.headline)
-                    .help("Enable to create custom video with cover art and track info. Disable for plain black screen.")
-                Spacer()
-            }
-            
-            // Video Options Section (only show when Custom Video is enabled)
-            if vm.useCustomVideo {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Video Options").font(.headline)
-                    
-                    VStack(alignment: .leading, spacing: 12) {
-                        // Cover Art Selection
-                        HStack {
-                            Text("Cover Art:")
-                                .frame(width: 80, alignment: .leading)
-                            TextField("No file selected", text: Binding(
-                                get: { vm.coverArtPath?.path ?? "" },
-                                set: { _ in }
-                            ))
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .frame(width: 300)
-                            .disabled(true)
-                            Button("Choose…") {
-                                vm.selectCoverArt()
-                            }
-                        }
-                        
-                        
-                        // Artist/Album Override
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Toggle("Show Artist", isOn: $vm.showArtist)
-                                if vm.showArtist {
-                                    TextField("Custom Artist", text: $vm.customArtist)
-                                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                                        .frame(width: 200)
-                                }
-                            }
-                            
-                            Spacer().frame(width: 20)
-                            
-                            VStack(alignment: .leading) {
-                                Toggle("Show Album", isOn: $vm.showAlbum)
-                                if vm.showAlbum {
-                                    TextField("Custom Album", text: $vm.customAlbum)
-                                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                                        .frame(width: 200)
-                                }
-                            }
-                        }
-                        
-                        // Background Options
-                        HStack {
-                            Text("Background:")
-                                .frame(width: 80, alignment: .leading)
-                            Picker("", selection: $vm.backgroundType) {
-                                ForEach(BackgroundType.allCases) { bg in
-                                    Text(bg.rawValue).tag(bg)
-                                }
-                            }
-                            .frame(width: 140)
-                            
-                            switch vm.backgroundType {
-                            case .solid:
-                                ColorPicker("Color", selection: Binding(
-                                    get: { Color(vm.solidColor) },
-                                    set: { vm.solidColor = NSColor($0) }
-                                ))
-                                .frame(width: 100)
-                            case .gradient:
-                                ColorPicker("Start", selection: Binding(
-                                    get: { Color(vm.gradientStartColor) },
-                                    set: { vm.gradientStartColor = NSColor($0) }
-                                ))
-                                .frame(width: 80)
-                                ColorPicker("End", selection: Binding(
-                                    get: { Color(vm.gradientEndColor) },
-                                    set: { vm.gradientEndColor = NSColor($0) }
-                                ))
-                                .frame(width: 80)
-                            case .image:
-                                TextField("No image selected", text: Binding(
-                                    get: { vm.backgroundImagePath?.path ?? "" },
-                                    set: { _ in }
-                                ))
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                .frame(width: 200)
-                                .disabled(true)
-                                Button("Choose…") {
-                                    vm.selectBackgroundImage()
-                                }
-                            }
-                        }
-                        
-                        // Border and Text Options
-                        HStack {
-                            Toggle("Show Border", isOn: $vm.showBorder)
-                            if vm.showBorder {
-                                Picker("Border Color", selection: $vm.borderColor) {
-                                    ForEach(BorderColor.allCases) { color in
-                                        Text(color.rawValue).tag(color)
-                                    }
-                                }
-                                .frame(width: 120)
-                            }
-                            
-                            Spacer().frame(width: 20)
-                            
-                            ColorPicker("Title Color", selection: Binding(
-                                get: { Color(vm.trackTitleColor) },
-                                set: { vm.trackTitleColor = NSColor($0) }
-                            ))
-                            .frame(width: 120)
-                        }
-                        
-                        // Text Glow Options
-                        HStack {
-                            Toggle("Text Glow", isOn: $vm.enableTextGlow)
-                            if vm.enableTextGlow {
-                                Picker("Glow Color", selection: $vm.textGlowColor) {
-                                    ForEach(TextGlowColor.allCases) { color in
-                                        Text(color.rawValue).tag(color)
-                                    }
-                                }
-                                .frame(width: 120)
-                                
-                                Text("Intensity:")
-                                Slider(value: $vm.textGlowIntensity, in: 1...10, step: 0.5)
-                                    .frame(width: 100)
-                                Text(String(format: "%.1f", vm.textGlowIntensity))
-                                    .frame(width: 30)
-                            }
-                        }
-                    }
-                    .padding(12)
-                    .background(
-                        RoundedRectangle(cornerRadius: 8)
-                            .fill(Palette.bg)
-                            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Palette.border, lineWidth: 1))
-                    )
-                }
-            }
 
             HStack {
                 LabeledTextField(label: "ffprobe", text: $vm.ffprobePath)
