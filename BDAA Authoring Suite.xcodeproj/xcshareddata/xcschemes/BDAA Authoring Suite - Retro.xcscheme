@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8BACABCA2E5D17BC00111220"
-               BuildableName = "BDAA Authoring Suite - Retro.app"
-               BlueprintName = "BDAA Authoring Suite - Retro"
-               ReferencedContainer = "container:BDAA Authoring Suite - Retro.xcodeproj">
+               BuildableName = "BDAA Authoring Suite.app"
+               BlueprintName = "BDAA Authoring Suite"
+               ReferencedContainer = "container:BDAA Authoring Suite.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8BACABDB2E5D17BE00111220"
-               BuildableName = "BDAA Authoring Suite - RetroTests.xctest"
-               BlueprintName = "BDAA Authoring Suite - RetroTests"
-               ReferencedContainer = "container:BDAA Authoring Suite - Retro.xcodeproj">
+               BuildableName = "BDAA Authoring SuiteTests.xctest"
+               BlueprintName = "BDAA Authoring SuiteTests"
+               ReferencedContainer = "container:BDAA Authoring Suite.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,9 +45,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8BACABE52E5D17BE00111220"
-               BuildableName = "BDAA Authoring Suite - RetroUITests.xctest"
-               BlueprintName = "BDAA Authoring Suite - RetroUITests"
-               ReferencedContainer = "container:BDAA Authoring Suite - Retro.xcodeproj">
+               BuildableName = "BDAA Authoring SuiteUITests.xctest"
+               BlueprintName = "BDAA Authoring SuiteUITests"
+               ReferencedContainer = "container:BDAA Authoring Suite.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -67,9 +67,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BACABCA2E5D17BC00111220"
-            BuildableName = "BDAA Authoring Suite - Retro.app"
-            BlueprintName = "BDAA Authoring Suite - Retro"
-            ReferencedContainer = "container:BDAA Authoring Suite - Retro.xcodeproj">
+            BuildableName = "BDAA Authoring Suite.app"
+            BlueprintName = "BDAA Authoring Suite"
+            ReferencedContainer = "container:BDAA Authoring Suite.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8BACABCA2E5D17BC00111220"
-            BuildableName = "BDAA Authoring Suite - Retro.app"
-            BlueprintName = "BDAA Authoring Suite - Retro"
-            ReferencedContainer = "container:BDAA Authoring Suite - Retro.xcodeproj">
+            BuildableName = "BDAA Authoring Suite.app"
+            BlueprintName = "BDAA Authoring Suite"
+            ReferencedContainer = "container:BDAA Authoring Suite.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

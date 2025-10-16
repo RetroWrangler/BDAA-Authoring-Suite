@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B1D21122E6A198000E54430 /* tsMuxeR in Resources */ = {isa = PBXBuildFile; fileRef = 8B1D21112E6A198000E54430 /* tsMuxeR */; };
-		8B1D21142E6A1B0000E54430 /* ffprobe in Resources */ = {isa = PBXBuildFile; fileRef = 8B1D21132E6A1B0000E54430 /* ffprobe */; };
-		8B1D21162E6A1B1600E54430 /* ffmpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8B1D21152E6A1B1500E54430 /* ffmpeg */; };
+		8B44BF1F2EA07A7700D50977 /* BDAA Authoring Suite - UITests in Resources */ = {isa = PBXBuildFile; fileRef = 8B44BF1E2EA07A7700D50977 /* BDAA Authoring Suite - UITests */; };
+		8B44BF232EA07AAD00D50977 /* ffmpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8B44BF202EA07AAD00D50977 /* ffmpeg */; };
+		8B44BF242EA07AAD00D50977 /* ffprobe in Resources */ = {isa = PBXBuildFile; fileRef = 8B44BF212EA07AAD00D50977 /* ffprobe */; };
+		8B44BF252EA07AAD00D50977 /* tsMuxeR in Resources */ = {isa = PBXBuildFile; fileRef = 8B44BF222EA07AAD00D50977 /* tsMuxeR */; };
 		8BACABCF2E5D17BD00111220 /* BDAA_Authoring_Suite___RetroApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BACABCE2E5D17BD00111220 /* BDAA_Authoring_Suite___RetroApp.swift */; };
 		8BACABD12E5D17BD00111220 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BACABD02E5D17BD00111220 /* ContentView.swift */; };
 		8BACABD32E5D17BE00111220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BACABD22E5D17BE00111220 /* Assets.xcassets */; };
 		8BACABD72E5D17BE00111220 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BACABD62E5D17BE00111220 /* Preview Assets.xcassets */; };
-		8BACABE12E5D17BE00111220 /* BDAA_Authoring_Suite___RetroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BACABE02E5D17BE00111220 /* BDAA_Authoring_Suite___RetroTests.swift */; };
-		8BACABEB2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BACABEA2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITests.swift */; };
-		8BACABED2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BACABEC2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITestsLaunchTests.swift */; };
+		8BAF79A52EA07A080088099E /* BDAA Authoring Suite - Tests in Resources */ = {isa = PBXBuildFile; fileRef = 8BAF79A42EA07A080088099E /* BDAA Authoring Suite - Tests */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,20 +36,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8B1D21112E6A198000E54430 /* tsMuxeR */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = tsMuxeR; path = "BDAA Authoring Suite - Retro/bin/tsMuxeR"; sourceTree = "<group>"; };
-		8B1D21132E6A1B0000E54430 /* ffprobe */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = ffprobe; path = "BDAA Authoring Suite - Retro/bin/ffprobe"; sourceTree = "<group>"; };
-		8B1D21152E6A1B1500E54430 /* ffmpeg */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = ffmpeg; path = "BDAA Authoring Suite - Retro/bin/ffmpeg"; sourceTree = "<group>"; };
-		8BACABCB2E5D17BD00111220 /* BDAA Authoring Suite - Retro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BDAA Authoring Suite - Retro.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B44BF1E2EA07A7700D50977 /* BDAA Authoring Suite - UITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "BDAA Authoring Suite - UITests"; sourceTree = "<group>"; };
+		8B44BF202EA07AAD00D50977 /* ffmpeg */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = ffmpeg; path = "BDAA Authoring Suite/bin/ffmpeg"; sourceTree = "<group>"; };
+		8B44BF212EA07AAD00D50977 /* ffprobe */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = ffprobe; path = "BDAA Authoring Suite/bin/ffprobe"; sourceTree = "<group>"; };
+		8B44BF222EA07AAD00D50977 /* tsMuxeR */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = tsMuxeR; path = "BDAA Authoring Suite/bin/tsMuxeR"; sourceTree = "<group>"; };
+		8BACABCB2E5D17BD00111220 /* BDAA Authoring Suite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BDAA Authoring Suite.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BACABCE2E5D17BD00111220 /* BDAA_Authoring_Suite___RetroApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BDAA_Authoring_Suite___RetroApp.swift"; sourceTree = "<group>"; };
 		8BACABD02E5D17BD00111220 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		8BACABD22E5D17BE00111220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BACABD42E5D17BE00111220 /* BDAA_Authoring_Suite___Retro.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BDAA_Authoring_Suite___Retro.entitlements"; sourceTree = "<group>"; };
 		8BACABD62E5D17BE00111220 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		8BACABDC2E5D17BE00111220 /* BDAA Authoring Suite - RetroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BDAA Authoring Suite - RetroTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BACABE02E5D17BE00111220 /* BDAA_Authoring_Suite___RetroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BDAA_Authoring_Suite___RetroTests.swift"; sourceTree = "<group>"; };
-		8BACABE62E5D17BE00111220 /* BDAA Authoring Suite - RetroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BDAA Authoring Suite - RetroUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8BACABEA2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BDAA_Authoring_Suite___RetroUITests.swift"; sourceTree = "<group>"; };
-		8BACABEC2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BDAA_Authoring_Suite___RetroUITestsLaunchTests.swift"; sourceTree = "<group>"; };
+		8BACABDC2E5D17BE00111220 /* BDAA Authoring SuiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BDAA Authoring SuiteTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BACABE62E5D17BE00111220 /* BDAA Authoring SuiteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BDAA Authoring SuiteUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BAF79A42EA07A080088099E /* BDAA Authoring Suite - Tests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "BDAA Authoring Suite - Tests"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,12 +79,12 @@
 		8BACABC22E5D17BC00111220 = {
 			isa = PBXGroup;
 			children = (
-				8B1D21152E6A1B1500E54430 /* ffmpeg */,
-				8B1D21132E6A1B0000E54430 /* ffprobe */,
-				8B1D21112E6A198000E54430 /* tsMuxeR */,
-				8BACABCD2E5D17BD00111220 /* BDAA Authoring Suite - Retro */,
-				8BACABDF2E5D17BE00111220 /* BDAA Authoring Suite - RetroTests */,
-				8BACABE92E5D17BE00111220 /* BDAA Authoring Suite - RetroUITests */,
+				8B44BF202EA07AAD00D50977 /* ffmpeg */,
+				8B44BF212EA07AAD00D50977 /* ffprobe */,
+				8B44BF222EA07AAD00D50977 /* tsMuxeR */,
+				8BACABCD2E5D17BD00111220 /* BDAA Authoring Suite */,
+				8BAF79A42EA07A080088099E /* BDAA Authoring Suite - Tests */,
+				8B44BF1E2EA07A7700D50977 /* BDAA Authoring Suite - UITests */,
 				8BACABCC2E5D17BD00111220 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,14 +92,14 @@
 		8BACABCC2E5D17BD00111220 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8BACABCB2E5D17BD00111220 /* BDAA Authoring Suite - Retro.app */,
-				8BACABDC2E5D17BE00111220 /* BDAA Authoring Suite - RetroTests.xctest */,
-				8BACABE62E5D17BE00111220 /* BDAA Authoring Suite - RetroUITests.xctest */,
+				8BACABCB2E5D17BD00111220 /* BDAA Authoring Suite.app */,
+				8BACABDC2E5D17BE00111220 /* BDAA Authoring SuiteTests.xctest */,
+				8BACABE62E5D17BE00111220 /* BDAA Authoring SuiteUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8BACABCD2E5D17BD00111220 /* BDAA Authoring Suite - Retro */ = {
+		8BACABCD2E5D17BD00111220 /* BDAA Authoring Suite */ = {
 			isa = PBXGroup;
 			children = (
 				8BACABCE2E5D17BD00111220 /* BDAA_Authoring_Suite___RetroApp.swift */,
@@ -110,7 +108,7 @@
 				8BACABD42E5D17BE00111220 /* BDAA_Authoring_Suite___Retro.entitlements */,
 				8BACABD52E5D17BE00111220 /* Preview Content */,
 			);
-			path = "BDAA Authoring Suite - Retro";
+			path = "BDAA Authoring Suite";
 			sourceTree = "<group>";
 		};
 		8BACABD52E5D17BE00111220 /* Preview Content */ = {
@@ -121,29 +119,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		8BACABDF2E5D17BE00111220 /* BDAA Authoring Suite - RetroTests */ = {
-			isa = PBXGroup;
-			children = (
-				8BACABE02E5D17BE00111220 /* BDAA_Authoring_Suite___RetroTests.swift */,
-			);
-			path = "BDAA Authoring Suite - RetroTests";
-			sourceTree = "<group>";
-		};
-		8BACABE92E5D17BE00111220 /* BDAA Authoring Suite - RetroUITests */ = {
-			isa = PBXGroup;
-			children = (
-				8BACABEA2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITests.swift */,
-				8BACABEC2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITestsLaunchTests.swift */,
-			);
-			path = "BDAA Authoring Suite - RetroUITests";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8BACABCA2E5D17BC00111220 /* BDAA Authoring Suite - Retro */ = {
+		8BACABCA2E5D17BC00111220 /* BDAA Authoring Suite */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BACABF02E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring Suite - Retro" */;
+			buildConfigurationList = 8BACABF02E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring Suite" */;
 			buildPhases = (
 				8BACABC72E5D17BC00111220 /* Sources */,
 				8BACABC82E5D17BC00111220 /* Frameworks */,
@@ -153,14 +134,14 @@
 			);
 			dependencies = (
 			);
-			name = "BDAA Authoring Suite - Retro";
+			name = "BDAA Authoring Suite";
 			productName = "BDAA Authoring Suite - Retro";
-			productReference = 8BACABCB2E5D17BD00111220 /* BDAA Authoring Suite - Retro.app */;
+			productReference = 8BACABCB2E5D17BD00111220 /* BDAA Authoring Suite.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8BACABDB2E5D17BE00111220 /* BDAA Authoring Suite - RetroTests */ = {
+		8BACABDB2E5D17BE00111220 /* BDAA Authoring SuiteTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BACABF32E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring Suite - RetroTests" */;
+			buildConfigurationList = 8BACABF32E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring SuiteTests" */;
 			buildPhases = (
 				8BACABD82E5D17BE00111220 /* Sources */,
 				8BACABD92E5D17BE00111220 /* Frameworks */,
@@ -171,14 +152,14 @@
 			dependencies = (
 				8BACABDE2E5D17BE00111220 /* PBXTargetDependency */,
 			);
-			name = "BDAA Authoring Suite - RetroTests";
+			name = "BDAA Authoring SuiteTests";
 			productName = "BDAA Authoring Suite - RetroTests";
-			productReference = 8BACABDC2E5D17BE00111220 /* BDAA Authoring Suite - RetroTests.xctest */;
+			productReference = 8BACABDC2E5D17BE00111220 /* BDAA Authoring SuiteTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8BACABE52E5D17BE00111220 /* BDAA Authoring Suite - RetroUITests */ = {
+		8BACABE52E5D17BE00111220 /* BDAA Authoring SuiteUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8BACABF62E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring Suite - RetroUITests" */;
+			buildConfigurationList = 8BACABF62E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring SuiteUITests" */;
 			buildPhases = (
 				8BACABE22E5D17BE00111220 /* Sources */,
 				8BACABE32E5D17BE00111220 /* Frameworks */,
@@ -189,9 +170,9 @@
 			dependencies = (
 				8BACABE82E5D17BE00111220 /* PBXTargetDependency */,
 			);
-			name = "BDAA Authoring Suite - RetroUITests";
+			name = "BDAA Authoring SuiteUITests";
 			productName = "BDAA Authoring Suite - RetroUITests";
-			productReference = 8BACABE62E5D17BE00111220 /* BDAA Authoring Suite - RetroUITests.xctest */;
+			productReference = 8BACABE62E5D17BE00111220 /* BDAA Authoring SuiteUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -217,7 +198,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8BACABC62E5D17BC00111220 /* Build configuration list for PBXProject "BDAA Authoring Suite - Retro" */;
+			buildConfigurationList = 8BACABC62E5D17BC00111220 /* Build configuration list for PBXProject "BDAA Authoring Suite" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -230,9 +211,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8BACABCA2E5D17BC00111220 /* BDAA Authoring Suite - Retro */,
-				8BACABDB2E5D17BE00111220 /* BDAA Authoring Suite - RetroTests */,
-				8BACABE52E5D17BE00111220 /* BDAA Authoring Suite - RetroUITests */,
+				8BACABCA2E5D17BC00111220 /* BDAA Authoring Suite */,
+				8BACABDB2E5D17BE00111220 /* BDAA Authoring SuiteTests */,
+				8BACABE52E5D17BE00111220 /* BDAA Authoring SuiteUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -242,11 +223,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B1D21162E6A1B1600E54430 /* ffmpeg in Resources */,
-				8B1D21122E6A198000E54430 /* tsMuxeR in Resources */,
 				8BACABD72E5D17BE00111220 /* Preview Assets.xcassets in Resources */,
+				8B44BF232EA07AAD00D50977 /* ffmpeg in Resources */,
 				8BACABD32E5D17BE00111220 /* Assets.xcassets in Resources */,
-				8B1D21142E6A1B0000E54430 /* ffprobe in Resources */,
+				8B44BF242EA07AAD00D50977 /* ffprobe in Resources */,
+				8B44BF252EA07AAD00D50977 /* tsMuxeR in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BAF79A52EA07A080088099E /* BDAA Authoring Suite - Tests in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B44BF1F2EA07A7700D50977 /* BDAA Authoring Suite - UITests in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +263,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BACABE12E5D17BE00111220 /* BDAA_Authoring_Suite___RetroTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,8 +270,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BACABED2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITestsLaunchTests.swift in Sources */,
-				8BACABEB2E5D17BE00111220 /* BDAA_Authoring_Suite___RetroUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,12 +278,12 @@
 /* Begin PBXTargetDependency section */
 		8BACABDE2E5D17BE00111220 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8BACABCA2E5D17BC00111220 /* BDAA Authoring Suite - Retro */;
+			target = 8BACABCA2E5D17BC00111220 /* BDAA Authoring Suite */;
 			targetProxy = 8BACABDD2E5D17BE00111220 /* PBXContainerItemProxy */;
 		};
 		8BACABE82E5D17BE00111220 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8BACABCA2E5D17BC00111220 /* BDAA Authoring Suite - Retro */;
+			target = 8BACABCA2E5D17BC00111220 /* BDAA Authoring Suite */;
 			targetProxy = 8BACABE72E5D17BE00111220 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -424,11 +404,11 @@
 				ARCHS = x86_64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "BDAA Authoring Suite - Retro/BDAA_Authoring_Suite___Retro.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "BDAA Authoring Suite/BDAA_Authoring_Suite___Retro.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BDAA Authoring Suite - Retro/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"BDAA Authoring Suite/Preview Content\"";
 				DEVELOPMENT_TEAM = 62593524UC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -465,11 +445,11 @@
 				ARCHS = x86_64;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "BDAA Authoring Suite - Retro/BDAA_Authoring_Suite___Retro.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "BDAA Authoring Suite/BDAA_Authoring_Suite___Retro.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"BDAA Authoring Suite - Retro/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"BDAA Authoring Suite/Preview Content\"";
 				DEVELOPMENT_TEAM = 62593524UC;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -518,7 +498,7 @@
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BDAA Authoring Suite - Retro.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BDAA Authoring Suite - Retro";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BDAA Authoring Suite.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BDAA Authoring Suite";
 				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
@@ -541,7 +521,7 @@
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BDAA Authoring Suite - Retro.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BDAA Authoring Suite - Retro";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BDAA Authoring Suite.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BDAA Authoring Suite";
 				VALID_ARCHS = x86_64;
 			};
 			name = Release;
@@ -593,7 +573,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8BACABC62E5D17BC00111220 /* Build configuration list for PBXProject "BDAA Authoring Suite - Retro" */ = {
+		8BACABC62E5D17BC00111220 /* Build configuration list for PBXProject "BDAA Authoring Suite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BACABEE2E5D17BE00111220 /* Debug */,
@@ -602,7 +582,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BACABF02E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring Suite - Retro" */ = {
+		8BACABF02E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring Suite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BACABF12E5D17BE00111220 /* Debug */,
@@ -611,7 +591,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BACABF32E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring Suite - RetroTests" */ = {
+		8BACABF32E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring SuiteTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BACABF42E5D17BE00111220 /* Debug */,
@@ -620,7 +600,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8BACABF62E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring Suite - RetroUITests" */ = {
+		8BACABF62E5D17BE00111220 /* Build configuration list for PBXNativeTarget "BDAA Authoring SuiteUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BACABF72E5D17BE00111220 /* Debug */,
