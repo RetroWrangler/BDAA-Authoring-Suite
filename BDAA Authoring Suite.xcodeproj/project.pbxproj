@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B44BF1F2EA07A7700D50977 /* BDAA Authoring Suite - UITests in Resources */ = {isa = PBXBuildFile; fileRef = 8B44BF1E2EA07A7700D50977 /* BDAA Authoring Suite - UITests */; };
+		8B2864BB2EA0850F00E34310 /* BDAA Authoring Suite - UITests in Resources */ = {isa = PBXBuildFile; fileRef = 8B2864BA2EA0850F00E34310 /* BDAA Authoring Suite - UITests */; };
 		8B44BF232EA07AAD00D50977 /* ffmpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8B44BF202EA07AAD00D50977 /* ffmpeg */; };
 		8B44BF242EA07AAD00D50977 /* ffprobe in Resources */ = {isa = PBXBuildFile; fileRef = 8B44BF212EA07AAD00D50977 /* ffprobe */; };
 		8B44BF252EA07AAD00D50977 /* tsMuxeR in Resources */ = {isa = PBXBuildFile; fileRef = 8B44BF222EA07AAD00D50977 /* tsMuxeR */; };
@@ -36,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8B44BF1E2EA07A7700D50977 /* BDAA Authoring Suite - UITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "BDAA Authoring Suite - UITests"; sourceTree = "<group>"; };
+		8B2864BA2EA0850F00E34310 /* BDAA Authoring Suite - UITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "BDAA Authoring Suite - UITests"; sourceTree = "<group>"; };
 		8B44BF202EA07AAD00D50977 /* ffmpeg */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = ffmpeg; path = "BDAA Authoring Suite/bin/ffmpeg"; sourceTree = "<group>"; };
 		8B44BF212EA07AAD00D50977 /* ffprobe */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = ffprobe; path = "BDAA Authoring Suite/bin/ffprobe"; sourceTree = "<group>"; };
 		8B44BF222EA07AAD00D50977 /* tsMuxeR */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; name = tsMuxeR; path = "BDAA Authoring Suite/bin/tsMuxeR"; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 				8B44BF222EA07AAD00D50977 /* tsMuxeR */,
 				8BACABCD2E5D17BD00111220 /* BDAA Authoring Suite */,
 				8BAF79A42EA07A080088099E /* BDAA Authoring Suite - Tests */,
-				8B44BF1E2EA07A7700D50977 /* BDAA Authoring Suite - UITests */,
+				8B2864BA2EA0850F00E34310 /* BDAA Authoring Suite - UITests */,
 				8BACABCC2E5D17BD00111220 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -243,7 +243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B44BF1F2EA07A7700D50977 /* BDAA Authoring Suite - UITests in Resources */,
+				8B2864BB2EA0850F00E34310 /* BDAA Authoring Suite - UITests in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
